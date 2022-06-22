@@ -17,10 +17,14 @@ class TV(Divice):
         self.state = False
 
     def set_volume(self, percent):
-        self.volume = percent
+        if 0 < percent < 100:
+            self.volume = percent
+        else:
+            print("Limite de volumen alcansado")
 
     def set_channel(self, channel):
         self.channel = channel
+        print(f"Canal: {self.channel}")
 
     def get_channel(self):
         return self.channel

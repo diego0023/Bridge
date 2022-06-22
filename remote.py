@@ -23,11 +23,10 @@ class Remote:
 
     def channel_up(self):
         self.divice.set_channel(self.divice.get_channel() + 1)
-        print(f"Canal: {self.divice.get_channel()}")
-    
+
     def channel_down(self):
         self.divice.set_channel(self.divice.get_channel() - 1)
-        print(f"Canal: {self.divice.get_channel()}")
+
         
     
 

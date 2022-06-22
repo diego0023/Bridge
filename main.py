@@ -9,8 +9,8 @@ from advanceremote import AdvanceRemote
 
 aceptado: bool = True
 controlTipo: bool = True
-dispositivo: Divice = TV()
-control: Remote = AdvanceRemote(dispositivo)
+dispositivo: Divice
+control: Remote
 
 
 def opciones():
@@ -36,7 +36,9 @@ def menu():
     print("\t3 - Volume Down")
     print("\t4 - Channel Up")
     print("\t5 - Channel Down")
+    print("\t6 - Mute")
     print("\t0 - salir")
+
 
 def menu_control():
     """
@@ -46,7 +48,6 @@ def menu_control():
     print("Selecciona una opcion ")
     print("\t1 - Control normal")
     print("\t2 - Control avanzado")
-    print("\t0 - salir")
 
 
 # menu para crear pedido
@@ -58,15 +59,15 @@ while aceptado:
     opcionMenu = input("inserta un numero valor >> ")
 
     if opcionMenu == "1":
-        dispositivo: Divice = Radio()
+        dispositivo = Radio()
         break
 
     elif opcionMenu == "2":
-        dispositivo: Divice = TV()
+        dispositivo = TV()
         break
 
     elif opcionMenu == "3":
-        dispositivo: Divice = SmartTv()
+        dispositivo = SmartTv()
         break
 
     elif opcionMenu == "0":
@@ -83,14 +84,14 @@ menu_control()
 opcionMenu = input("elegir opcion")
 
 if opcionMenu == "1":
-    control: Remote = Remote(dispositivo)
+    control = Remote(dispositivo)
     controlTipo = False
         
 elif opcionMenu == "2":
-    control: Remote = AdvanceRemote(dispositivo)
+    control = AdvanceRemote(dispositivo)
        
 # menu para crear pedido
-while aceptado == True:
+while aceptado:
     # Mostramos el menu
     menu()
 
@@ -119,7 +120,7 @@ while aceptado == True:
         
     elif opcionMenu == "6":
         print("MUTE")
-        if controlTipo==True:
+        if controlTipo:
             control.mute()
         else:
             print("Este control no tiene esa opcion")
@@ -130,6 +131,3 @@ while aceptado == True:
     else:
         print("")
         input("No has pulsado ninguna opción correcta...\npulsa una tecla para continuar")
-
-    
-
